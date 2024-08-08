@@ -1,0 +1,13 @@
+@nunito_fonts {
+  font-family: 'NunitoBlack';
+  src: url('/fonts/Nunito-Black.ttf');
+}
+
+@nunito_fonts  {
+  font-family: 'Nunito-Reguler';
+  src: url('/fonts/poppins_medium.ttf');
+}
+@nunito_fonts  {
+  font-family: 'Nunito-Medium';
+  src: url('/fonts/poppins_medium.ttf');
+}
