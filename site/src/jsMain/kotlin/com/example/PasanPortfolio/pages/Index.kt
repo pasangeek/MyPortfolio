@@ -1,6 +1,12 @@
 package com.example.PasanPortfolio.pages
 
 import androidx.compose.runtime.*
+import com.example.PasanPortfolio.components.Prifile
+import com.example.PasanPortfolio.components.ThemeSwitchButton
+import com.example.PasanPortfolio.util.String
+import com.example.PasanPortfolio.util.Theme
+import com.varabyte.kobweb.compose.css.functions.LinearGradient
+import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.css.margin
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -8,6 +14,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundImage
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
@@ -25,6 +32,7 @@ import com.varabyte.kobweb.silk.components.icons.fa.IconStyle
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import kotlinx.browser.localStorage
 import org.jetbrains.compose.web.css.FlexWrap
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
@@ -35,25 +43,31 @@ import org.jetbrains.compose.web.dom.Text
 @Page
 @Composable
 fun HomePage()  {
-    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(Modifier.align(Alignment.End)) {
-            var colorMode by ColorMode.currentState
-            Button(
-                onClick = { colorMode = colorMode.opposite },
-                Modifier.borderRadius(50.percent).padding(0.px)
-            ) {
-                // Includes support for Font Awesome icons
-                if (colorMode.isLight) FaMoon() else FaSun()
-            }
+    var colorMode by ColorMode.currentState
+
+    LaunchedEffect(colorMode) {
+        val savedTheme = localStorage.getItem(String.SAVED_THEME) ?: ColorMode.LIGHT.name
+        colorMode = ColorMode.valueOf(savedTheme)
+    }
+
+    ThemeSwitchButton(
+        colorMode = colorMode,
+        onClick = {
+            colorMode = colorMode.opposite
+            localStorage.setItem(String.SAVED_THEME, colorMode.name)
         }
-        H1 {
-            Text("Welcome to Kobweb!")
-        }
-        Row(Modifier.flexWrap(FlexWrap.Wrap)) {
-            SpanText("Create rich, dynamic web apps with ease, leveraging ")
-            Link("https://kotlinlang.org/", "Kotlin")
-            SpanText(" and ")
-            Link("https://github.com/JetBrains/compose-multiplatform/#compose-html", "Compose HTML")
-        }
+    )
+    Box (
+        Modifier
+            .fillMaxSize()
+            .backgroundImage(
+                linearGradient(
+                    dir = LinearGradient.Direction.ToRight,
+                    from = Theme.GRADIENT_ONE.color,
+                    to = Theme.GRADIENT_TWO.color
+                )
+            )
+    ){
+        Prifile(colorMode = colorMode )
     }
 }

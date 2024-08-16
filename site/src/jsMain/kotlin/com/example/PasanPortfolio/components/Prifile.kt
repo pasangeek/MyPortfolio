@@ -24,27 +24,27 @@ import org.jetbrains.compose.web.css.px
 fun Prifile(colorMode: ColorMode) {
     val breakpoint = rememberBreakpoint()
     SimpleGrid(
-    numColumns = numColumns(base = 1, md = 2),
-    modifier = Modifier
-    .fillMaxWidth(
-    if (breakpoint <= Breakpoint.MD) 100.percent
-    else Dimens.MAX_CARD_WIDTH.px
-    )
-    .thenIf(
-    condition = breakpoint > Breakpoint.MD,
-    other = Modifier.height(Dimens.MAX_CARD_HEIGHT.px)
-    )
-    .boxShadow(
-    color = Colors.Black.copy(alpha = 10),
-    blurRadius = 50.px,
-    spreadRadius = 50.px
-    )
-    .padding(all = 12.px)
-    .borderRadius(r = Dimens.BORDER_RADIUS.px)
-    .background(
-    if (colorMode.isLight) Colors.White else
-    Theme.DARK_BLUE.color
-    )
+        numColumns = numColumns(base = 1, md = 2),
+        modifier = Modifier
+            .fillMaxWidth(
+                if (breakpoint <= Breakpoint.MD) 100.percent
+                else Dimens.MAX_CARD_WIDTH.px
+            )
+            .thenIf(
+                condition = breakpoint > Breakpoint.MD,
+                other = Modifier.height(Dimens.MAX_CARD_HEIGHT.px)
+            )
+            .boxShadow(
+                color = Colors.Black.copy(alpha = 10),
+                blurRadius = 50.px,
+                spreadRadius = 50.px
+            )
+            .padding(all = 12.px)
+            .borderRadius(r = Dimens.BORDER_RADIUS.px)
+            .background(
+                if (colorMode.isLight) Colors.White else
+                    Theme.DARK_BLUE.color
+            )
     ) {
         LeftSide(colorMode = colorMode, breakpoint = breakpoint)
         RightSide(breakpoint = breakpoint)
