@@ -12,6 +12,6 @@ object String {
     const val BUTTON_TEXT = "Get in touch"
     const val MY_EMAIL = "pasanwedikkara@gmail.com"
     const val SAVED_THEME = "theme"
-    const val FONTBOLD = "Bold"
-    const val FONTREGULER = "Regular"
+    const val FONTBOLD = "Nunito-Bold"
+    const val FONTREGULER = "Nunito-Regular"
 }

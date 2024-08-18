@@ -45,15 +45,15 @@ fun IconButton(
         ){
             Image(
                 modifier = Modifier.size(iconSize),
-                src = icon.toString()
+                src = icon
             )
         }
     }
 }
 
 enum class SocialIcon(
-    val icon: kotlin.String,
-    val link: kotlin.String
+    val icon: String,
+    val link: String
 ) {
     Github(
         icon = Icon.GITHUB,
