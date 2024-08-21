@@ -1,6 +1,6 @@
 package com.example.PasanPortfolio.Styles
 
-import com.example.PasanPortfolio.util.Theme
+import com.example.PasanPortfolio.util.Res
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -26,8 +26,8 @@ val SocialIconStyle by ComponentStyle {
         Modifier
             .rotate(10.deg)
             .background(
-                if (colorMode.isLight) Theme.SOCIAL_ICON_BACKGROUND_LIGHT.color
-                else Theme.SOCIAL_ICON_BACKGROUND_DARK.color
+                if (colorMode.isLight) Res.Theme.SOCIAL_ICON_BACKGROUND_LIGHT.color
+                else Res.Theme.SOCIAL_ICON_BACKGROUND_DARK.color
             )
     }
 }
@@ -37,7 +37,7 @@ val ThemeIconStyle by ComponentStyle {
         Modifier
             .background(
                 if (colorMode.isLight) Colors.White
-                else Theme.DARK_BLUE.color
+                else Res.Theme.DARK_BLUE.color
             )
             .transition(
                 CSSTransition(property = "background", duration = 300.ms)
@@ -47,8 +47,8 @@ val ThemeIconStyle by ComponentStyle {
     hover {
         Modifier
             .background(
-                if (colorMode.isLight) Theme.SOCIAL_ICON_BACKGROUND_LIGHT.color
-                else Theme.SOCIAL_ICON_BACKGROUND_DARK.color
+                if (colorMode.isLight) Res.Theme.SOCIAL_ICON_BACKGROUND_LIGHT.color
+                else Res.Theme.SOCIAL_ICON_BACKGROUND_DARK.color
             )
     }
 }

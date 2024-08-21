@@ -1,11 +1,11 @@
-package com.example.PasanPortfolio.components
+package com.example.PasanPortfolio.Components
 
 import androidx.compose.runtime.Composable
 import com.example.PasanPortfolio.Styles.ThemeIconStyle
-import com.example.PasanPortfolio.util.Dimens.ICON_SIZE
-import com.example.PasanPortfolio.util.Dimens.ICON_SIZE_LG
-import com.example.PasanPortfolio.util.Icon
 import com.example.PasanPortfolio.util.IconButton
+import com.example.PasanPortfolio.util.Res
+import com.example.PasanPortfolio.util.Res.Dimens.ICON_SIZE
+import com.example.PasanPortfolio.util.Res.Dimens.ICON_SIZE_LG
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -15,8 +15,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.zIndex
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
-import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.Position
@@ -46,7 +46,7 @@ fun ThemeSwitchButton(
                     property("pointer-events", "auto")
                 },
             colorMode = colorMode,
-            icon = if (colorMode.isLight) Icon.SUN else Icon.MOON,
+            icon = if (colorMode.isLight) Res.Icon.SUN else Res.Icon.MOON,
             iconSize = if (breakpoint > Breakpoint.SM) ICON_SIZE_LG.px else ICON_SIZE.px,
             onClick = onClick
         )

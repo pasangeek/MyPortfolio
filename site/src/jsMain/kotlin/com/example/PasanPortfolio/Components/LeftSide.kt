@@ -1,12 +1,10 @@
-package com.example.PasanPortfolio.components
+package com.example.PasanPortfolio.Components
 
 import androidx.compose.runtime.Composable
 import com.example.PasanPortfolio.Styles.SocialIconStyle
-import com.example.PasanPortfolio.util.Icon
 import com.example.PasanPortfolio.util.IconButton
+import com.example.PasanPortfolio.util.Res
 import com.example.PasanPortfolio.util.SocialIcon
-import com.example.PasanPortfolio.util.String
-import com.example.PasanPortfolio.util.Theme
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -32,13 +30,11 @@ import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
-import com.varabyte.kobweb.silk.components.forms.ButtonStyle
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.Surface
+import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
-import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.percent
@@ -58,10 +54,10 @@ fun LeftSide(
                 Alignment.CenterHorizontally else Alignment.Start
         ) {
             SpanText(
-                text = String.NAME,
+                text = Res.String.NAME,
                 modifier = Modifier
                     .margin(bottom = 12.px)
-                    .fontFamily(String.FONTBOLD)
+                    .fontFamily(Res.String.FONTBOLD)
                     .color(if (colorMode.isLight) Colors.Black else Colors.White)
                     .fontSize(50.px)
                     .fontWeight(FontWeight.Bold)
@@ -71,10 +67,10 @@ fun LeftSide(
                     )
             )
             SpanText(
-                text = String.PROFESSION,
+                text = Res.String.PROFESSION,
                 modifier = Modifier
                     .margin(bottom = 24.px)
-                    .fontFamily(String.FONTREGULER)
+                    .fontFamily(Res.String.FONTREGULER)
                     .color(if (colorMode.isLight) Colors.Black else Colors.White)
                     .fontSize(18.px)
             )
@@ -84,8 +80,8 @@ fun LeftSide(
                     .width(40.px)
                     .margin(bottom = 24.px)
                     .background(
-                        if (colorMode.isLight) Theme.BLUE.color
-                        else Theme.LIGHT_BLUE.color
+                        if (colorMode.isLight) Res.Theme.BLUE.color
+                        else Res.Theme.LIGHT_BLUE.color
                     )
                     .align(
                         if (breakpoint <= Breakpoint.SM) Alignment.CenterHorizontally
@@ -94,7 +90,7 @@ fun LeftSide(
             ) {}
             SpanText(
                 modifier = Modifier
-                    .fontFamily(String.FONTREGULER)
+                    .fontFamily(Res.String.FONTREGULER)
                     .fontSize(14.px)
                     .color(if (colorMode.isLight) Colors.Black else Colors.White)
                     .opacity(50.percent)
@@ -104,29 +100,29 @@ fun LeftSide(
                         if (breakpoint <= Breakpoint.SM) TextAlign.Center
                         else TextAlign.Start
                     ),
-                text = String.ABOUT_ME
+                text = Res.String.ABOUT_ME
             )
             Button(
                 modifier = com.example.PasanPortfolio.Styles.ButtonStyle.toModifier()
                     .margin(bottom = 50.px),
                 size = ButtonSize.LG,
-                onClick = { window.location.href = String.MY_EMAIL }
+                onClick = { window.location.href = Res.String.MY_EMAIL }
             ) {
                 Image(
                     modifier = Modifier.margin(right = 12.px),
-                    src = if (colorMode.isLight) Icon.EMAIL_LIGHT
-                    else Icon.EMAIL_DARK
+                    src = if (colorMode.isLight) Res.Icon.EMAIL_LIGHT
+                    else Res.Icon.EMAIL_DARK
                 )
                 SpanText(
                     modifier = Modifier
                         .fontSize(14.px)
                         .color(
                             if (colorMode.isLight) Colors.White
-                            else Theme.GRADIENT_ONE_DARK.color
+                            else Res.Theme.GRADIENT_ONE_DARK.color
                         )
                         .fontWeight(FontWeight.Bold)
-                        .fontFamily(String.FONTREGULER),
-                    text = String.BUTTON_TEXT
+                        .fontFamily(Res.String.FONTREGULER),
+                    text = Res.String.BUTTON_TEXT
                 )
             }
             Row(

@@ -1,7 +1,6 @@
 package com.example.PasanPortfolio.Styles
 
 import com.varabyte.kobweb.compose.css.CSSTransition
-import com.varabyte.kobweb.compose.css.TransitionProperty
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.transition
